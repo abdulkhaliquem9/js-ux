@@ -1,0 +1,28 @@
+
+<figure class="product-image-container product-image-container-<?= /* @noEscape */ $block->getProduct()->getId() ?>">
+    <svg
+        width="150"
+        height="150"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+        <filter id="spotlight">
+            <feFlood
+            result="floodFill"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            flood-color="#f8f8f8"
+            flood-opacity="1" />
+            <feBlend in="SourceGraphic" in2="floodFill" mode="multiply" />
+        </filter>
+        </defs>
+    
+        <image
+        href="<?php echo $imageHelper->init($block->getProduct(), 'cart_page_product_thumbnail_small', ['height' => 150 , 'width'=> 150])->getUrl();?>"
+        width="100%"
+        height="100%"
+        style="filter:url(#spotlight);" />
+    </svg>
+</figure>
